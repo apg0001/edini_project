@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+<div class="home-container">
+  <h2>🌷 어서 와요, 에디니!</h2>
+  <div class="summary-box">
+    <p>📦 누적 칭찬 스티커: <span id="total-sticker">0</span></p>
+    <p>🏅 현재 뱃지: <span id="current-badge">없음</span></p>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="/edini/calendar" class="pretty-btn">📅 스티커 달력 보기</a>
+    <a href="/edini/request" class="pretty-btn">💌 칭찬 요청하기</a>
+    <a href="/edini/statistics" class="pretty-btn">📈 통계 보기</a>
+  </div>
+</div>
+
+<script src="/static/summary.js"></script>
+{% endblock %}

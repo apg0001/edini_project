@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block content %}
+<div class="dashboard-container">
+  <h2>📋 관리자 대시보드</h2>
+
+  <section class="section-box">
+    <h3>요청 목록</h3>
+    <ul class="request-list">
+      {% for r in requests %}
+      <li>
+        {{ r.message }} ({{ r.date_created.strftime('%Y-%m-%d') }}) {% if not
+        r.approved %} -
+        <a class="approve-link" href="/admin/requests/{{ r.id }}/approve"
+          >[승인]</a
+        >
+        {% else %} - ✅ 승인됨 {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="section-box">
+    <h3>수동 스티커 지급</h3>
+    <form method="post" action="/admin/sticker" class="sticker-form">
+      <label>날짜:</label><input type="date" name="date" required /><br />
+      <label>사유:</label><input type="text" name="reason" required /><br />
+      <label>개수:</label
+      ><input type="number" name="count" value="1" required /><br />
+      <button type="submit">🎁 지급</button>
+    </form>
+  </section>
+
+  <section class="section-box">
+    <h3>전체 스티커 내역</h3>
+    <table class="sticker-table">
+      <tr>
+        <th>날짜</th>
+        <th>사유</th>
+        <th>개수</th>
+        <th>출처</th>
+        <th>삭제</th>
+      </tr>
+      {% for s in stickers %}
+      <tr>
+        <td>{{ s.date.strftime('%Y-%m-%d') }}</td>
+        <td>{{ s.reason }}</td>
+        <td>{{ s.count }}</td>
+        <td>{{ s.source }}</td>
+        <td>
+          <a class="delete-btn" href="/admin/sticker/{{ s.id }}/delete">🗑</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </section>
+</div>
+{% endblock %}

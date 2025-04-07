@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+<div class="request-container">
+  <h2>💌 에디니, 칭찬을 요청해보세요</h2>
+  <p class="subtext">
+    "어떤 점이 스스로 자랑스러웠나요?"<br />용기를 내어 칭찬을 요청해보세요 🌷
+  </p>
+
+  <form method="post" action="/edini/request" class="request-form">
+    <label for="message">칭찬받고 싶은 이유</label>
+    <textarea
+      name="message"
+      id="message"
+      rows="6"
+      placeholder="예: 오늘은 씻자마자 머리 말렸어요!!"
+      required
+    ></textarea>
+    <button type="submit">🌟 칭찬 요청 보내기</button>
+  </form>
+</div>
+{% endblock %}

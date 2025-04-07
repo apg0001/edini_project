@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+<div class="calendar-container">
+  <h2>📅 에디니의 칭찬 달력</h2>
+
+  <div class="summary-box">
+    <p>📦 누적 칭찬 스티커: <span id="total-sticker">0</span></p>
+    <p>🏅 현재 뱃지: <span id="current-badge">없음</span></p>
+  </div>
+
+  <table id="calendar">
+    <thead>
+      <tr>
+        <th>일</th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th>토</th>
+      </tr>
+    </thead>
+    <tbody id="calendar-body">
+      <!-- JS에서 채움 -->
+    </tbody>
+  </table>
+</div>
+
+<script src="/static/calendar.js"></script>
+<script src="/static/summary.js"></script>
+{% endblock %}
