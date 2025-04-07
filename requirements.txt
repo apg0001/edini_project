@@ -1,7 +1,8 @@
-fastapi==0.68.0
-uvicorn[standard]==0.15.0
-jinja2==3.0.3
-sqlalchemy==1.4.27
-pydantic==1.8.2
-gunicorn==20.1.0
+fastapi
+uvicorn[standard]
+jinja2
+sqlalchemy
+pydantic
+gunicorn
 python-multipart
+dotenv
